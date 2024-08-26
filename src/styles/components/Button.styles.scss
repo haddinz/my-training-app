@@ -1,0 +1,28 @@
+.btn-container {
+
+    .add-btn-primary {
+      background-color: #178a00;
+      padding: 12px;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-btn-danger {
+      background-color: #8a0000;
+      padding: 12px;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+}

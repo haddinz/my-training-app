@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Awesome Granite Table",
+      "price": "499.99",
+      "description": "A durable and stylish granite table perfect for any modern dining room.",
+      "createdAt": "2024-08-23T08:45:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Practical Plastic Chair",
+      "price": "29.99",
+      "description": "A lightweight and stackable plastic chair, ideal for outdoor use.",
+      "createdAt": "2024-08-22T11:30:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Incredible Steel Hat",
+      "price": "79.99",
+      "description": "A trendy steel hat that provides both style and protection.",
+      "createdAt": "2024-08-21T14:15:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Ergonomic Cotton Keyboard",
+      "price": "199.99",
+      "description": "A comfortable and ergonomic keyboard made from soft cotton material.",
+      "createdAt": "2024-08-20T09:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "Intelligent Wooden Lamp Edit",
+      "price": "8765498",
+      "description": "A smart lamp with a wooden finish that adapts to your lighting needs.",
+      "createdAt": "2024-08-19T18:45:00Z"
+    },
+    {
+      "id": "6",
+      "name": "Fantastic Silk Shoes",
+      "price": "89.99",
+      "description": "Elegant silk shoes that are both comfortable and stylish.",
+      "createdAt": "2024-08-18T12:00:00Z"
+    },
+    {
+      "id": "7",
+      "name": "Unbreakable Leather Wallet",
+      "price": "49.99",
+      "description": "A premium leather wallet that is both durable and stylish.",
+      "createdAt": "2024-08-17T16:30:00Z"
+    },
+    {
+      "id": "8",
+      "name": "Heavy-Duty Iron Hammer",
+      "price": "39.99",
+      "description": "A reliable and heavy-duty hammer made from high-quality iron.",
+      "createdAt": "2024-08-16T20:15:00Z"
+    },
+    {
+      "id": "9",
+      "name": "Portable",
+      "price": "19.99",
+      "description": "A lightweight aluminum bottle perfect for outdoor activities.",
+      "createdAt": "2024-08-15T10:45:00Z"
+    },
+    {
+      "id": "49d8",
+      "name": "Galon Biru",
+      "price": "231",
+      "description": "Mencari galon yng memilki banyak fungsi seperti ini",
+      "createdAt": "2024-08-25T14:18:13.927Z"
+    }
+  ]
+}

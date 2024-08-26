@@ -1,0 +1,14 @@
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    margin-top: 40px;
+
+    .form-update {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
