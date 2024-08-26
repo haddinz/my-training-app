@@ -1,4 +1,4 @@
-import "../styles/components/Layout.styles.scss"
+import "../styles/components/Layout.styles.scss";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -6,7 +6,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main className="layout-container">
       <Header />
-      {children}
+      <div>{children}</div>
       <Footer />
     </main>
   );

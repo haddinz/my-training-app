@@ -55,13 +55,6 @@
       "price": "39.99",
       "description": "A reliable and heavy-duty hammer made from high-quality iron.",
       "createdAt": "2024-08-16T20:15:00Z"
-    },
-    {
-      "id": "eefc",
-      "name": "Botol Minuman Kemasan",
-      "price": "21",
-      "description": "Mengandung vitamin yang bagus untuk tubuh",
-      "createdAt": "2024-08-26T07:50:36.406Z"
     }
   ]
 }
