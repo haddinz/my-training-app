@@ -4,16 +4,16 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
-import axios from "axios";
 import { RootState } from "../store";
 import {
   AddProductType,
   UpdateProductType,
   Product,
 } from "../../types/productType";
+import ApiClient from "../getApiClient";
 
 export const getProduct = createAsyncThunk("product/getProducts", async () => {
-  const response = await axios.get("http://localhost:4000/products");
+  const response = await ApiClient.get("products");
   const data = response.data;
 
   return data;
@@ -22,10 +22,9 @@ export const getProduct = createAsyncThunk("product/getProducts", async () => {
 export const addProduct = createAsyncThunk(
   "product/addProduct",
   async ({ name, price, description, createdAt }: AddProductType) => {
-    const response = await axios.post("http://localhost:4000/products", {
+    const response = await ApiClient.post("products", {
       name,
       price,
-
       description,
       createdAt,
     });
@@ -37,7 +36,7 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "product/deleteProduct",
   async (id: string) => {
-    await axios.delete(`http://localhost:4000/products/${id}`);
+    await ApiClient.delete(`products/${id}`);
     return id;
   }
 );
@@ -45,10 +44,9 @@ export const deleteProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
   "product/updateProduct",
   async ({ id, name, price, description }: UpdateProductType) => {
-    const response = await axios.patch(`http://localhost:4000/products/${id}`, {
+    const response = await ApiClient.patch(`products/${id}`, {
       name,
       price,
-
       description,
     });
 
@@ -56,7 +54,8 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-//kemudahan dalam melakukan selectore dalam selectAll, selectById, dll, berdasarkan id dari product yang telah di tentukan
+// kemudahan dalam melakukan selectore dalam selectAll, selectById, dll,
+// berdasarkan id dari product yang telah di tentukan
 const productEntry = createEntityAdapter({
   selectId: (product: Product) => product.id,
 });

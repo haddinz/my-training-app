@@ -1,0 +1,42 @@
+.header-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3 7 18);
+
+  div {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    nav {
+      cursor: pointer;
+
+      .link-name {
+        font-size: 1.6rem;
+        color: white;
+        text-decoration: none;
+      }
+
+      ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+          margin-left: 32px;
+          font-size: 1.2rem;
+
+          .link-li {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

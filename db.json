@@ -57,18 +57,11 @@
       "createdAt": "2024-08-16T20:15:00Z"
     },
     {
-      "id": "9",
-      "name": "Portable",
-      "price": "19.99",
-      "description": "A lightweight aluminum bottle perfect for outdoor activities.",
-      "createdAt": "2024-08-15T10:45:00Z"
-    },
-    {
-      "id": "49d8",
-      "name": "Galon Biru",
-      "price": "231",
-      "description": "Mencari galon yng memilki banyak fungsi seperti ini",
-      "createdAt": "2024-08-25T14:18:13.927Z"
+      "id": "eefc",
+      "name": "Botol Minuman Kemasan",
+      "price": "21",
+      "description": "Mengandung vitamin yang bagus untuk tubuh",
+      "createdAt": "2024-08-26T07:50:36.406Z"
     }
   ]
 }

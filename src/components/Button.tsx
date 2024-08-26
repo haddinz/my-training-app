@@ -6,7 +6,7 @@ interface btn {
   func?: () => void;
 }
 
-export const Button = ({ text, func, color }: btn) => {
+const Button = ({ text, func, color }: btn) => {
   return (
     <div className="btn-container">
       <button
@@ -18,3 +18,5 @@ export const Button = ({ text, func, color }: btn) => {
     </div>
   );
 };
+
+export default Button
