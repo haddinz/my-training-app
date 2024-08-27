@@ -56,17 +56,6 @@ function UpdateContact() {
     <Layout>
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-update">
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              required
-              autoFocus
-              name="name"
-              value={editContact.name}
-              onChange={handleChange}
-            />
-          </div>
 
           <div>
             <label htmlFor="name">Name</label>
