@@ -1,24 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../utils/store";
-import {
-  addProduct,
-  deleteProduct,
-  getProduct,
-  productSelectors,
-  updateProduct,
-} from "../utils/slice/productSlice";
 import { useCallback, useEffect, useState } from "react";
-import { AddProductType, UpdateProductType } from "../types/productType";
+import {
+  addContact,
+  contactSelectors,
+  deleteContact,
+  getContact,
+  updateContact,
+} from "../utils/slice/contactSlice";
+import { AddContactType, UpdateContactType } from "../types/contactType";
 
-export const GetProductHooks = () => {
+export const GetContactHooks = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector(productSelectors.selectAll);
+  const data = useSelector(contactSelectors.selectAll);
 
   const getData = useCallback(async () => {
     try {
       setIsLoading(true);
-      await dispatch(getProduct());
+      await dispatch(getContact());
       setIsLoading(false);
     } catch (error) {
       console.log("error : ", error);
@@ -33,64 +33,67 @@ export const GetProductHooks = () => {
   return { isLoading, data };
 };
 
-export const AddProductHooks = (product: AddProductType) => {
+export const AddContactHooks = (contact: AddContactType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useDispatch<AppDispatch>();
 
   const postData = useCallback(async () => {
     try {
       setIsLoading(true);
-      dispatch(addProduct(product));
+      dispatch(addContact(contact));
       setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(true);
     }
-  }, [dispatch, product]);
+  }, [dispatch, contact]);
 
   return { isLoading, postData };
 };
 
-export const UpdateProductHooks = (id: string, product: UpdateProductType) => {
+export const UpdateContactHooks = (id: string, contact: UpdateContactType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useDispatch<AppDispatch>();
 
   const data = useSelector((state: RootState) =>
-    productSelectors.selectById(state, id ?? "")
+    contactSelectors.selectById(state, id ?? "")
   );
 
   useEffect(() => {
-    dispatch(getProduct);
+    dispatch(getContact);
   }, [dispatch]);
 
   const updateData = useCallback(async () => {
     try {
       setIsLoading(true);
-      await dispatch(updateProduct(product));
+      await dispatch(updateContact(contact));
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       console.log("error : ", error);
     }
-  }, [dispatch, product]);
+  }, [contact, dispatch]);
 
   return { isLoading, data, updateData };
 };
 
-export const DeleteProductHooks = () => {
+export const DeleteContactHooks = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
 
-  const deleteData = useCallback( async (id: string) => {
-    try {
-      setIsLoading(true);
-      await dispatch(deleteProduct(id));
-      setIsLoading(false);
-    } catch (error) {
-      console.log("error : ", error);
-      setIsLoading(true);
-    }
-  }, [dispatch]);
+  const deleteData = useCallback(
+    async (id: string) => {
+      try {
+        setIsLoading(true);
+        await dispatch(deleteContact(id));
+        setIsLoading(false);
+      } catch (error) {
+        console.log("error : ", error);
+        setIsLoading(true);
+      }
+    },
+    [dispatch]
+  );
 
   return { isLoading, deleteData };
 };

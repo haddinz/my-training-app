@@ -1,5 +1,5 @@
-import UpdateProduct from "./product/UpdateProduct";
-import Products from "./product/Products";
-import AddProduct from "./product/AddProduct";
+import AddContact from "./contact/AddContact";
+import Contacts from "./contact/Contacts";
+import UpdateContact from "./contact/UpdateContact";
 
-export { UpdateProduct, Products, AddProduct };
+export { AddContact, Contacts, UpdateContact };

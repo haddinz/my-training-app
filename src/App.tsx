@@ -1,15 +1,15 @@
+import { AddContact, Contacts, UpdateContact } from "./page";
 import "./styles/app.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import UpdateProduct from "./page/product/UpdateProduct";
-import { AddProduct, Products } from "./page";
+
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/product/add" element={<AddProduct />} />
-        <Route path="/product/update/:id" element={<UpdateProduct />} />
+        <Route path="/" element={<Contacts />} />
+        <Route path="/Contact/add" element={<AddContact />} />
+        <Route path="/contact/update/:id" element={<UpdateContact />} />
       </Routes>
     </Router>
   );

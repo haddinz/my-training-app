@@ -1,37 +1,36 @@
 import { ChangeEvent, useState } from "react";
-import { AddProductType } from "../../types/productType";
 import { useNavigate } from "react-router-dom";
 import { Button, Layout } from "../../components";
-import { AddProductHooks } from "../../hooks/productHooks";
+import "../../styles/contact/AddContac.style.scss"
+import { AddContactType } from "../../types/contactType";
+import { AddContactHooks } from "../../hooks/contactHooks";
 
-import "../../styles/product/AddProduct.style.scss";
-
-function AddProduct() {
-  const [product, setProduct] = useState<AddProductType>({
+function AddContact() {
+  const [contact, setContact] = useState<AddContactType>({
     name: "",
-    price: "",
-    description: "",
-    createdAt: new Date(),
+    email: "",
+    phone: "",
+    address: "",
   });
 
   const navigate = useNavigate();
 
-  const { isLoading, postData: addProduct } = AddProductHooks(product);
+  const { isLoading, postData: addContact } = AddContactHooks(contact);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
-    setProduct({
-      ...product,
+    setContact({
+      ...contact,
       [name]: value,
     });
   };
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    await addProduct();
+    await addContact();
     navigate("/");
   };
 
@@ -47,39 +46,52 @@ function AddProduct() {
               name="name"
               autoFocus
               required
-              value={product.name}
+              value={contact.name}
               onChange={handleChange}
             />
           </div>
 
           <div>
-            <label htmlFor="price">Price:</label>
+            <label htmlFor="email">Email:</label>
             <input
               type="text"
-              id="price"
-              name="price"
+              id="email"
+              name="email"
               required
-              value={product.price}
+              value={contact.email}
               onChange={handleChange}
             />
           </div>
 
           <div>
-            <label htmlFor="description">Description:</label>
-            <textarea
-              id="description"
-              name="description"
+            <label htmlFor="phone">Phone:</label>
+            <input
+              id="phone"
+              name="phone"
               required
-              value={product.description}
+              value={contact.phone}
               onChange={handleChange}
             />
           </div>
 
-          <Button text={isLoading ? "submit" : "loading...."} color="primary" />
+          <div>
+            <label htmlFor="address">Address:</label>
+            <input
+              id="address"
+              name="address"
+              required
+              value={contact.address}
+              onChange={handleChange}
+            />
+          </div>
+
+          <Button.Primary>
+            {isLoading ? "submit" : "loading...."}
+          </Button.Primary>
         </form>
       </div>
     </Layout>
   );
 }
 
-export default AddProduct;
+export default AddContact;

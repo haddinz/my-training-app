@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/components/Header.style.scss";
+// import SearchBox from "./SearchBos";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
         </nav>
 
         <nav>
+          {/* <SearchBox /> */}
           <ul>
             <li>
               <Link to={"/"} className="link-li">
@@ -19,8 +21,8 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to={"/"} className="link-li">
-                Product
+              <Link to={"/contact/add"} className="link-li">
+                Add Contact
               </Link>
             </li>
           </ul>

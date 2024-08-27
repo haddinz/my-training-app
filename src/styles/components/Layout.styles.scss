@@ -3,4 +3,9 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    background-color: #f0f0f0;
+
+    .layout-div {
+        margin: 24px 0;
+    }
 }

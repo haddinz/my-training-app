@@ -1,22 +1,33 @@
 import "../styles/components/button.styles.scss";
 
 interface btn {
-  text: string;
-  color: string;
+  children: React.ReactNode;
   func?: () => void;
 }
 
-const Button = ({ text, func, color }: btn) => {
+const Primary = ({ children, func }: btn) => {
   return (
     <div className="btn-container">
-      <button
-        className={color === "primary" ? "add-btn-primary" : "add-btn-danger"}
-        onClick={func}
-      >
-        {text}
+      <button className="add-btn-primary" onClick={func}>
+        {children}
       </button>
     </div>
   );
+};
+
+const Danger = ({ children, func }: btn) => {
+  return (
+    <div className="btn-container">
+      <button className="add-btn-danger" onClick={func}>
+        {children}
+      </button>
+    </div>
+  );
+};
+
+const Button = {
+  Primary,
+  Danger,
 };
 
 export default Button

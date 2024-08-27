@@ -1,60 +1,74 @@
 {
-  "products": [
+  "contacts": [
     {
-      "id": "1",
-      "name": "Awesome Granite Table",
-      "price": "499.99",
-      "description": "A durable and stylish granite table perfect for any modern dining room.",
-      "createdAt": "2024-08-23T08:45:00Z"
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1-202-555-0123",
+      "address": "123 Elm Street, Springfield, IL"
     },
     {
-      "id": "2",
-      "name": "Practical Plastic Chair",
-      "price": "29.99",
-      "description": "A lightweight and stackable plastic chair, ideal for outdoor use.",
-      "createdAt": "2024-08-22T11:30:00Z"
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "+1-202-555-0456",
+      "address": "456 Oak Avenue, Lincoln, NE"
     },
     {
-      "id": "3",
-      "name": "Incredible Steel Hat",
-      "price": "79.99",
-      "description": "A trendy steel hat that provides both style and protection.",
-      "createdAt": "2024-08-21T14:15:00Z"
+      "id": 3,
+      "name": "Emily Johnson",
+      "email": "emily.johnson@example.com",
+      "phone": "+1-202-555-0789",
+      "address": "789 Pine Road, Denver, CO"
     },
     {
-      "id": "4",
-      "name": "Ergonomic Cotton Keyboard",
-      "price": "199.99",
-      "description": "A comfortable and ergonomic keyboard made from soft cotton material.",
-      "createdAt": "2024-08-20T09:00:00Z"
+      "id": 4,
+      "name": "Michael Brown",
+      "email": "michael.brown@example.com",
+      "phone": "+1-202-555-0110",
+      "address": "101 Maple Street, Austin, TX"
     },
     {
-      "id": "5",
-      "name": "Intelligent Wooden Lamp Edit",
-      "price": "8765498",
-      "description": "A smart lamp with a wooden finish that adapts to your lighting needs.",
-      "createdAt": "2024-08-19T18:45:00Z"
+      "id": 5,
+      "name": "Sarah Davis",
+      "email": "sarah.davis@example.com",
+      "phone": "+1-202-555-0145",
+      "address": "234 Cedar Lane, Boston, MA"
     },
     {
-      "id": "6",
-      "name": "Fantastic Silk Shoes",
-      "price": "89.99",
-      "description": "Elegant silk shoes that are both comfortable and stylish.",
-      "createdAt": "2024-08-18T12:00:00Z"
+      "id": 6,
+      "name": "David Wilson",
+      "email": "david.wilson@example.com",
+      "phone": "+1-202-555-0167",
+      "address": "567 Birch Drive, Miami, FL"
     },
     {
-      "id": "7",
-      "name": "Unbreakable Leather Wallet",
-      "price": "49.99",
-      "description": "A premium leather wallet that is both durable and stylish.",
-      "createdAt": "2024-08-17T16:30:00Z"
+      "id": 7,
+      "name": "Jessica Martinez",
+      "email": "jessica.martinez@example.com",
+      "phone": "+1-202-555-0192",
+      "address": "890 Willow Way, Seattle, WA"
     },
     {
-      "id": "8",
-      "name": "Heavy-Duty Iron Hammer",
-      "price": "39.99",
-      "description": "A reliable and heavy-duty hammer made from high-quality iron.",
-      "createdAt": "2024-08-16T20:15:00Z"
+      "id": 8,
+      "name": "Daniel Taylor",
+      "email": "daniel.taylor@example.com",
+      "phone": "+1-202-555-0224",
+      "address": "345 Aspen Boulevard, Atlanta, GA"
+    },
+    {
+      "id": 9,
+      "name": "Laura Moore",
+      "email": "laura.moore@example.com",
+      "phone": "+1-202-555-0255",
+      "address": "678 Cypress Court, Chicago, IL"
+    },
+    {
+      "id": 10,
+      "name": "James Anderson",
+      "email": "james.anderson@example.com",
+      "phone": "+1-202-555-0288",
+      "address": "901 Redwood Circle, San Francisco, CA"
     }
   ]
 }
