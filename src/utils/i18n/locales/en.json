@@ -1,3 +1,25 @@
 {
-  "welcomeMessage": "Welcome to our application"
+  "welcomeMessage": "Welcome to our application",
+  "contact": "Contact Selectors",
+  "tableHead": {
+    "no": "No",
+    "id": "ID",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "action": "Action"
+  },
+  "addContact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "updateContact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
+  }
 }

@@ -2,7 +2,7 @@
   "contacts": [
     {
       "id": "1",
-      "name": "John Doe",
+      "name": "John Cena",
       "email": "john.doe@example.com",
       "phone": "+1-202-555-0123",
       "address": "123 Elm Street, Springfield, IL"
@@ -37,7 +37,7 @@
     },
     {
       "id": "6",
-      "name": "David Wilson",
+      "name": "David Wilson Jhonson",
       "email": "david.wilson@example.com",
       "phone": "+1-202-555-0167",
       "address": "567 Birch Drive, Miami, FL"
@@ -69,6 +69,13 @@
       "email": "james.anderson@example.com",
       "phone": "+1-202-555-0288",
       "address": "901 Redwood Circle, San Francisco, CA"
+    },
+    {
+      "id": "7933",
+      "name": "Bayu Riandi",
+      "email": "bayu@riyandi.com",
+      "phone": "0221-2831-2891",
+      "address": "jln bersama di dalam angkot timur"
     }
   ]
 }

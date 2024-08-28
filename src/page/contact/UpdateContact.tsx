@@ -4,10 +4,14 @@ import "../../styles/contact/UpdateContact.style.scss";
 import { Button, Layout } from "../../components";
 import { UpdateContactType } from "../../types/contactType";
 import { UpdateContactHooks } from "../../hooks/contactHooks";
+import { useTranslation } from "react-i18next";
 
 function UpdateContact() {
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { t } = useTranslation();
+  const updateContactKey = ["name", "email", "phone", "address"];
 
   const [editContact, setEditContact] = useState<UpdateContactType>({
     id: id ?? "",
@@ -56,8 +60,20 @@ function UpdateContact() {
     <Layout>
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-update">
+          {updateContactKey.map((item, index) => (
+            <div key={index}>
+              <label htmlFor={item}>{t(`updateContact.${item}`)}</label>
+              <input
+                type="text"
+                required
+                name={item}
+                value={editContact[item as keyof UpdateContactType]}
+                onChange={handleChange}
+              />
+            </div>
+          ))}
 
-          <div>
+          {/* <div>
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -99,7 +115,7 @@ function UpdateContact() {
               value={editContact.address}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
           <div>
             <Button.Primary>

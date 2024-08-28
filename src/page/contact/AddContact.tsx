@@ -4,8 +4,12 @@ import { Button, Layout } from "../../components";
 import "../../styles/contact/AddContac.style.scss";
 import { AddContactType } from "../../types/contactType";
 import { AddContactHooks } from "../../hooks/contactHooks";
+import { useTranslation } from "react-i18next";
 
 function AddContact() {
+  const { t } = useTranslation();
+  const addContactKey = ["name", "email", "phone", "address"];
+
   const [contact, setContact] = useState<AddContactType>({
     name: "",
     email: "",
@@ -38,8 +42,22 @@ function AddContact() {
     <Layout>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name:</label>
+          {addContactKey.map((item, index) => (
+            <div key={index}>
+              <label htmlFor={item}>{t(`addContact.${item}`)}</label>
+              <input
+                type="text"
+                id={item}
+                name={item}
+                autoFocus
+                required
+                value={contact[item as keyof AddContactType]}
+                onChange={handleChange}
+              />
+            </div>
+          ))}
+          {/* <div>
+            <label htmlFor="name">{t(`addContact.${addContactKey[0]}`)}</label>
             <input
               type="text"
               id="name"
@@ -83,7 +101,7 @@ function AddContact() {
               value={contact.address}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
           <Button.Primary>
             {isLoading ? "submit" : "loading...."}

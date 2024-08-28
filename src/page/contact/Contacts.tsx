@@ -5,8 +5,20 @@ import Layout from "../../components/Layout";
 import { useEffect, useState } from "react";
 import { Contact } from "../../types/contactType";
 import { DeleteContactHooks, GetContactHooks } from "../../hooks/contactHooks";
+import { useTranslation } from "react-i18next";
 
 function Contacts() {
+  const tableHeadKeys = [
+    "no",
+    "id",
+    "name",
+    "email",
+    "phone",
+    "address",
+    "action",
+  ];
+
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { isLoading, data: contacts } = GetContactHooks();
   const { isLoading: deleteLoading, deleteData } = DeleteContactHooks();
@@ -38,7 +50,7 @@ function Contacts() {
         ) : (
           <div className="div-container">
             <div className="head-card-container">
-              <h1>Contact Selectors</h1>
+              <h1>{t("contact")}</h1>
             </div>
 
             <div className="input-container">
@@ -52,13 +64,16 @@ function Contacts() {
               <table>
                 <thead>
                   <tr>
-                    <th>no</th>
+                    {tableHeadKeys.map((item, index) => (
+                      <th key={index}>{t(`tableHead.${item}`)}</th>
+                    ))}
+                    {/* <th>no</th>
                     <th>id</th>
                     <th>name</th>
                     <th>email</th>
                     <th>phone</th>
                     <th>address</th>
-                    <th>action</th>
+                    <th>action</th> */}
                   </tr>
                 </thead>
                 <tbody>

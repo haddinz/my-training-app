@@ -13,29 +13,54 @@
     justify-content: space-between;
     align-items: center;
 
-    nav {
+    .nav-title {
       cursor: pointer;
 
-      .link-name {
+      .link-title {
         font-size: 1.6rem;
         color: white;
         text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rgb(196, 199, 255);
+        }
       }
+    }
+
+    .nav-ul {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
 
       ul {
-        display: flex;
+        width: 100%;
         list-style-type: none;
+        display: flex;
+        gap: 20px;
 
         li {
-          margin-left: 32px;
-          font-size: 1.2rem;
-
           .link-li {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: rgb(196, 199, 255);
+            }
           }
         }
+      }
+
+      .link-select {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        
       }
     }
   }

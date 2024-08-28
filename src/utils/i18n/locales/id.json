@@ -1,3 +1,25 @@
 {
-  "welcomeMessage": "Selamat datang di aplikasi kami"
+  "welcomeMessage": "Selamat datang di aplikasi kami",
+  "contact": "Seleksi Kontak",
+  "tableHead": {
+    "no": "No",
+    "id": "ID",
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "address": "Alamat",
+    "action": "Aksi"
+  },
+  "addContact": {
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "address": "Alamat"
+  },
+  "updateContact": {
+    "name": "Nama",
+    "email": "Email",
+    "phone": "Telepon",
+    "address": "Alamat"
+  }
 }
