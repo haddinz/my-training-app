@@ -2,7 +2,7 @@ import "../../styles/contact/Contact.style.scss";
 import { useNavigate } from "react-router-dom";
 import { AutoInput, Button } from "../../components";
 import Layout from "../../components/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Contact } from "../../types/contactType";
 import { DeleteContactHooks, GetContactHooks } from "../../hooks/contactHooks";
 
@@ -13,7 +13,11 @@ function Contacts() {
 
   const [contactFilter, setContactFilter] = useState<Contact[]>(contacts || []);
 
-  const changeHandler = (value: string) => {
+  useEffect(() => {
+    setContactFilter(contacts);
+  }, [contacts]);
+
+  const clickHandler = (value: string) => {
     if (!contacts) return null;
     setContactFilter(
       contacts.filter((item) =>
@@ -39,12 +43,12 @@ function Contacts() {
 
             <div className="input-container">
               <AutoInput
-                suggestions={contacts.map((item) => item.name)}
-                onSearch={changeHandler}
+                contacName={contacts.map((item) => item.name)}
+                onClickInput={clickHandler}
               />
             </div>
 
-            {contactFilter.length !== 0 && (
+            {contactFilter.length !== 0 ? (
               <table>
                 <thead>
                   <tr>
@@ -80,6 +84,10 @@ function Contacts() {
                   ))}
                 </tbody>
               </table>
+            ) : (
+              <div className="not-found">
+                <p>contact is not found</p>
+              </div>
             )}
           </div>
         )}

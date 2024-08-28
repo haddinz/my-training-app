@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Layout } from "../../components";
-import "../../styles/contact/AddContac.style.scss"
+import "../../styles/contact/AddContac.style.scss";
 import { AddContactType } from "../../types/contactType";
 import { AddContactHooks } from "../../hooks/contactHooks";
 

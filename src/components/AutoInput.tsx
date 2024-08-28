@@ -3,31 +3,33 @@ import Button from "./Button";
 import "../styles/components/AutoInput.style.scss";
 
 interface AutoInput {
-  suggestions: string[];
-  onSearch: (searchTerm: string) => void;
+  contacName: string[];
+  onClickInput: (changeInputValue: string) => void;
 }
 
-const AutoInput: React.FC<AutoInput> = ({ suggestions, onSearch }) => {
+const AutoInput: React.FC<AutoInput> = ({ contacName, onClickInput }) => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+  const [filterContactName, setFilterContactName] = useState<string[]>([]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
-    setFilteredSuggestions(
-      suggestions.filter((suggestion) =>
-        suggestion.toLowerCase().includes(value.toLowerCase())
+    onClickInput(inputValue)
+    setFilterContactName(
+      contacName.filter((contacName) =>
+        contacName.toLowerCase().includes(value.toLowerCase())
       )
     );
   };
 
-  const handleClear = () => {
-    setInputValue("");
-    setFilteredSuggestions([]);
-  };
+  const handleClick = (name?: string) => {
+    setInputValue(name || "");
+    setFilterContactName([])
+    onClickInput(name || "")
+  }
 
   const handleSearch = () => {
-    onSearch(inputValue);
+    onClickInput(inputValue);
   };
 
   return (
@@ -37,22 +39,22 @@ const AutoInput: React.FC<AutoInput> = ({ suggestions, onSearch }) => {
           type="text"
           required
           value={inputValue}
-          placeholder="Search...."
+          placeholder="Search Name...."
           onChange={handleChange}
         />
         <div className="auto-ul-container">
-          {filteredSuggestions.length > 0 && (
+          {filterContactName.length > 0 && (
             <ul className="suggestions-list">
-              {filteredSuggestions.map((suggestion, index) => (
-                <li key={index}>{suggestion}</li>
+              {filterContactName.map((names, index) => (
+                <li key={index} onClick={() => handleClick(names)}>{names}</li>
               ))}
             </ul>
           )}
         </div>
       </div>
       <div className="auto-btn">
-        <Button.Primary func={handleClear}>Clear</Button.Primary>
-        <Button.Primary func={handleSearch}>Search</Button.Primary>
+        <Button.Primary func={() => handleClick()}>Clear</Button.Primary>
+        <Button.Primary func={() => handleSearch()}>Search</Button.Primary>
       </div>
     </div>
   );

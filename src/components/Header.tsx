@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../styles/components/Header.style.scss";
-// import SearchBox from "./SearchBos";
 
 function Header() {
   return (
@@ -10,10 +9,10 @@ function Header() {
           <Link to={"/"} className="link-name">
             Selectors
           </Link>
+          
         </nav>
 
         <nav>
-          {/* <SearchBox /> */}
           <ul>
             <li>
               <Link to={"/"} className="link-li">
