@@ -21,5 +21,9 @@
     "email": "Email",
     "phone": "Phone",
     "address": "Address"
+  },
+  "navbar": {
+    "home": "Home",
+    "addContact": "Add Contact"
   }
 }

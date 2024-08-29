@@ -23,7 +23,7 @@ function UpdateContact() {
 
   const {
     isLoading,
-    data: contact,
+    memoData: contact,
     updateData,
   } = UpdateContactHooks(id ?? "", editContact);
 
@@ -119,7 +119,7 @@ function UpdateContact() {
 
           <div>
             <Button.Primary>
-              {isLoading ? "submit" : "loading...."}
+              {isLoading ? "loading...." : "submit"}
             </Button.Primary>
           </div>
         </form>

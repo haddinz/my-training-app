@@ -13,7 +13,7 @@ export interface AddContactType {
   address: string;
 }
 
-export interface UpdateContactType extends Contact {
+export interface UpdateContactType {
   id: string;
   name: string;
   email: string;

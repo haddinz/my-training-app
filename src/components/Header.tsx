@@ -7,7 +7,12 @@ import { AppDispatch, RootState } from "../utils/store";
 import { languageState } from "../utils/slice/languageSlice";
 
 function Header() {
-  const { i18n } = useTranslation();
+  const navbarMenu = [
+    { key: "home", url: "/" },
+    { key: "addContact", url: "/contact/add" },
+  ];
+
+  const { i18n, t } = useTranslation();
   const data = useSelector((state: RootState) => state.language.value);
   const dispatch = useDispatch<AppDispatch>();
   const options = [
@@ -34,16 +39,13 @@ function Header() {
 
         <nav className="nav-ul">
           <ul>
-            <li>
-              <Link to={"/"} className="link-li">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to={"/contact/add"} className="link-li">
-                Add Contact
-              </Link>
-            </li>
+            {navbarMenu.map((item, index) => (
+              <li key={index}>
+                <Link to={item.url} className="link-li">
+                  {t(`navbar.${item.key}`)}
+                </Link>
+              </li>
+            ))}
           </ul>
           <select
             className="link-select"

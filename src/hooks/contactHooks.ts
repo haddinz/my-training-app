@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../utils/store";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   addContact,
   contactSelectors,
@@ -52,15 +52,17 @@ export const AddContactHooks = (contact: AddContactType) => {
 };
 
 export const UpdateContactHooks = (id: string, contact: UpdateContactType) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
 
   const data = useSelector((state: RootState) =>
     contactSelectors.selectById(state, id ?? "")
   );
 
+  const memoData = useMemo(() => data, [data]);
+
   useEffect(() => {
-    dispatch(getContact);
+    dispatch(getContact());
   }, [dispatch]);
 
   const updateData = useCallback(async () => {
@@ -69,12 +71,12 @@ export const UpdateContactHooks = (id: string, contact: UpdateContactType) => {
       await dispatch(updateContact(contact));
       setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
+      setIsLoading(true);
       console.log("error : ", error);
     }
   }, [contact, dispatch]);
 
-  return { isLoading, data, updateData };
+  return { isLoading, memoData, updateData };
 };
 
 export const DeleteContactHooks = () => {

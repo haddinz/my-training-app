@@ -21,5 +21,9 @@
     "email": "Email",
     "phone": "Telepon",
     "address": "Alamat"
+  },
+  "navbar": {
+    "home": "Utama",
+    "addContact": "Tambah Kontak"
   }
 }
