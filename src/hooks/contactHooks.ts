@@ -59,7 +59,7 @@ export const UpdateContactHooks = (id: string, contact: UpdateContactType) => {
     contactSelectors.selectById(state, id ?? "")
   );
 
-  const memoData = useMemo(() => data, [data]);
+  const fecthData = useMemo(() => data, [data]);
 
   useEffect(() => {
     dispatch(getContact());
@@ -76,7 +76,7 @@ export const UpdateContactHooks = (id: string, contact: UpdateContactType) => {
     }
   }, [contact, dispatch]);
 
-  return { isLoading, memoData, updateData };
+  return { isLoading, fecthData, updateData };
 };
 
 export const DeleteContactHooks = () => {

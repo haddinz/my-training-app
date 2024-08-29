@@ -23,7 +23,7 @@ function UpdateContact() {
 
   const {
     isLoading,
-    memoData: contact,
+    fecthData: contact,
     updateData,
   } = UpdateContactHooks(id ?? "", editContact);
 

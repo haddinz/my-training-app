@@ -20,6 +20,7 @@ function Contacts() {
 
   const { t } = useTranslation();
   const navigate = useNavigate();
+  
   const { isLoading, data: contacts } = GetContactHooks();
   const { isLoading: deleteLoading, deleteData } = DeleteContactHooks();
 
