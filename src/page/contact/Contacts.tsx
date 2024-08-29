@@ -2,7 +2,7 @@ import "../../styles/contact/Contact.style.scss";
 import { useNavigate } from "react-router-dom";
 import { AutoInput, Button } from "../../components";
 import Layout from "../../components/Layout";
-import { useEffect, useState } from "react";
+import { useMemo, useState, lazy, useEffect } from "react";
 import { Contact } from "../../types/contactType";
 import { DeleteContactHooks, GetContactHooks } from "../../hooks/contactHooks";
 import { useTranslation } from "react-i18next";
@@ -20,24 +20,26 @@ function Contacts() {
 
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  const { isLoading: deleteLoading, deleteData } = DeleteContactHooks();
   
   const { isLoading, data: contacts } = GetContactHooks();
-  const { isLoading: deleteLoading, deleteData } = DeleteContactHooks();
 
-  const [contactFilter, setContactFilter] = useState<Contact[]>(contacts || []);
+  const [contactFilter, setContactFilter] = useState<Contact[]>(contacts);
 
-  useEffect(() => {
-    setContactFilter(contacts);
-  }, [contacts]);
+  // useEffect(() => {
+  //   setContactFilter(contacts)
+  // }, [contacts])
 
   const clickHandler = (value: string) => {
-    if (!contacts) return null;
     setContactFilter(
       contacts.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       )
     );
   };
+
+  console.log("contact:", contacts)
 
   const deleteHandler = (id: string) => {
     deleteData(id);

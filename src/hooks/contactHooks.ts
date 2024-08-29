@@ -13,7 +13,9 @@ import { AddContactType, UpdateContactType } from "../types/contactType";
 export const GetContactHooks = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector(contactSelectors.selectAll);
+  const fecthData = useSelector(contactSelectors.selectAll);
+
+  const data = useMemo(() => fecthData, [fecthData]);
 
   const getData = useCallback(async () => {
     try {
@@ -41,7 +43,7 @@ export const AddContactHooks = (contact: AddContactType) => {
     try {
       setIsLoading(true);
       dispatch(addContact(contact));
-      setIsLoading(false);
+      setIsLoading(true);
     } catch (error) {
       console.log(error);
       setIsLoading(true);
