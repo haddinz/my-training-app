@@ -1,23 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import "../../styles/contact/Contact.style.scss";
-import { useNavigate } from "react-router-dom";
-import {
-  // AutoInput,
-  Button,
-} from "../../components";
-// import Layout from "../../components/Layout";
-import { useMemo, useState, lazy, useEffect, Suspense } from "react";
+import Layout from "../../components/Layout";
+import { useState, lazy, useEffect, Suspense } from "react";
 import { Contact } from "../../types/contactType";
-import { DeleteContactHooks, GetContactHooks } from "../../hooks/contactHooks";
+import { GetContactHooks } from "../../hooks/contactHooks";
 import { useTranslation } from "react-i18next";
+import { ComponentType } from "react";
+import { AutoInput, MessageBox } from "../../components";
 
-import { ComponentType } from 'react';
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Delay<T = ComponentType<any>> = Promise<{ default: T }>;
 
-
-const AutoInput = lazy(() => import("../../components/AutoInput"));
-const Layout = lazy(() => delayForDemo(import("../../components/Layout")));
+// const AutoInput = lazy(() => import("../../components/AutoInput"));
+const ContactItems = lazy(() =>
+  delayViewContact(import("../../components/ContactItems"))
+);
 
 function Contacts() {
   const tableHeadKeys = [
@@ -31,9 +27,6 @@ function Contacts() {
   ];
 
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const { isLoading: deleteLoading, deleteData } = DeleteContactHooks();
 
   const { isLoading, data: contacts } = GetContactHooks();
 
@@ -51,83 +44,50 @@ function Contacts() {
     );
   };
 
-  const deleteHandler = (id: string) => {
-    deleteData(id);
-  };
-
   return (
-    <Suspense fallback={<div>Loading....</div>}>
-      <Layout>
-        <div>
-          {isLoading || contacts.length === 0 ? (
-            <div className="loading">loading......</div>
-          ) : (
-            <div className="div-container">
-              <div className="head-card-container">
-                <h1>{t("contact")}</h1>
-              </div>
+    <Layout>
+      <div>
+        {isLoading || contacts.length === 0 ? (
+          <MessageBox>loading.....</MessageBox>
+        ) : (
+          <div className="div-container">
+            <div className="head-card-container">
+              <h1>{t("contact")}</h1>
+            </div>
 
-              <div className="input-container">
-                <AutoInput
-                  contacName={contacts.map((item) => item.name)}
-                  onClickInput={clickHandler}
-                />
-              </div>
-
+            <div className="input-container">
+              <AutoInput
+                contacName={contacts.map((item) => item.name)}
+                onClickInput={clickHandler}
+              />
+            </div>
+            <Suspense fallback={<MessageBox>loading....</MessageBox>}>
               {contactFilter.length !== 0 ? (
-                <table>
-                  <thead>
-                    <tr>
-                      {tableHeadKeys.map((item, index) => (
-                        <th key={index}>{t(`tableHead.${item}`)}</th>
-                      ))}
-                      {/* <th>no</th>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>phone</th>
-                    <th>address</th>
-                    <th>action</th> */}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {contactFilter.map((item, index) => (
-                      <tr className="card" key={item.id}>
-                        <td>{index + 1}</td>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>{item.email}</td>
-                        <td>{item.phone}</td>
-                        <td>{item.address}</td>
-                        <td className="card-btn-container">
-                          <Button.Primary
-                            func={() => navigate(`/contact/update/${item.id}`)}
-                          >
-                            Update
-                          </Button.Primary>
-                          <Button.Danger func={() => deleteHandler(item.id)}>
-                            {deleteLoading ? "loading..." : "Delete"}
-                          </Button.Danger>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <ContactItems
+                  tableHeadKeys={tableHeadKeys}
+                  contactFilter={contactFilter}
+                />
               ) : (
                 <div className="not-found">
                   <p>contact is not found</p>
                 </div>
               )}
-            </div>
-          )}
-        </div>
-      </Layout>
-    </Suspense>
+            </Suspense>
+          </div>
+        )}
+      </div>
+    </Layout>
   );
 }
 
-const delayForDemo = (promise: Delay) => new Promise((resolve) => {
-  setTimeout(resolve, 2000);
-}).then(() => promise);
+// const delayForDemo = (promise: Delay) =>
+//   new Promise((resolve) => {
+//     setTimeout(resolve, 2000);
+//   }).then(() => promise);
+
+const delayViewContact = (promise: Delay) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, 3000);
+  }).then(() => promise);
 
 export default Contacts;
